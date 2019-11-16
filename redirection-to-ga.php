@@ -19,15 +19,18 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 define( 'R2GA', 'redirection-to-ga' );
 
 /* Файлы плагина */
-//require 'classes/plugin.php';
+require 'classes/plugin.php';
+require 'classes/redirection-extension.php';
+require 'classes/ihandler.php';
+require 'classes/logger.php';
+require 'classes/google-analytics.php';
 
 
 /* Запуск плагина */
-/*\R2GA\Plugin::init( 
+R2GA\Plugin::init( 
 	plugin_dir_path( __FILE__ ), 			// Путь к папке плагина
 	plugin_dir_url( __FILE__ ), 			// URL к папке плагина
 	get_file_data( __FILE__, array(			// Мета-данные из заголовка плагина
 			'Name' 		=> 'Plugin Name',	// Название Пдагина
 			'Version' 	=> 'Version',		// Версия плагина
         ) ) );
-*/
