@@ -39,6 +39,11 @@ class Plugin
 	/**
      * @var RedirectionExtension
      */
+    private $settings = null;
+
+	/**
+     * @var RedirectionExtension
+     */
     private $redirectionExtension = null;
 
 	/**
@@ -114,6 +119,7 @@ class Plugin
 		if ( is_plugin_active( 'redirection/redirection.php' ) ) 
         {
 			// Активация компонентов плагина
+			$this->settings = new Settings();
 			$this->redirectionExtension = new RedirectionExtension();
 			$this->googleAnalytics = new GoogleAnalytics();
 			if ( WP_DEBUG ) $this->logger = new Logger();
@@ -121,15 +127,15 @@ class Plugin
         }
         else
         {
-			add_action( 'admin_notices', array( $this, 'showNoticeNoWC' ) );
+			add_action( 'admin_notices', array( $this, 'showNoticeNoRedirection' ) );
 			return;
 		}
 	}
 	
 	/**
-	 * Предупреждение об отсутствии WooCommerce
+	 * Предупреждение об отсутствии Redirection
 	 */
-	public function showNoticeNoWC()
+	public function showNoticeNoRedirection()
 	{
 		echo '<div class="notice notice-warning no-redirection"><p>';
 		printf( 

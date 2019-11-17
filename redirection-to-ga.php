@@ -20,8 +20,10 @@ define( 'R2GA', 'redirection-to-ga' );
 
 /* Файлы плагина */
 require 'classes/plugin.php';
+require 'classes/settings.php';
 require 'classes/redirection-extension.php';
 require 'classes/ihandler.php';
+require 'classes/measurement-protocol.php';
 require 'classes/logger.php';
 require 'classes/google-analytics.php';
 
